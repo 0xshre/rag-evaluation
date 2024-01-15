@@ -171,3 +171,5 @@ poetry.toml
 pyrightconfig.json
 
 # Custom
+
+*.json

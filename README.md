@@ -45,3 +45,10 @@ Then, use the following command to run the entire pipeline as a command line int
 ```bash
 python src/main.py
 ```
+
+
+## Report
+
+The evaluation can be found in the following link:
+
+https://api.wandb.ai/links/prasadshreyas/mrby6yi9

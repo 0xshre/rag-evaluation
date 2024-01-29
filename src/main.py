@@ -1,15 +1,15 @@
 EXIT_PROMPT = "exit"
 
 import dspy
-import chromadb_rm
+from chromadb_rm import ChromadbRM
 import os
 
 class GenerateAnswer(dspy.Signature):
-    """Answer questions with short factoid answers."""
+    """Answer questions given the context"""
 
     context = dspy.InputField(desc="may contain relevant facts")
     question = dspy.InputField()
-    answer = dspy.OutputField(desc="Answer with words between 1 and 5 words")
+    answer = dspy.OutputField(desc="Answer the question")
 
 class RAG(dspy.Module):
     def __init__(self, num_passages=5):
@@ -30,7 +30,7 @@ def setup():
 
     turbo = dspy.OpenAI(model='gpt-3.5-turbo')
 
-    chroma_rm = chromadb_rm.ChromadbRM(collection_name="test", persist_directory="chroma.db", local_embed_model="sentence-transformers/paraphrase-MiniLM-L6-v2",
+    chroma_rm = ChromadbRM(collection_name="test", persist_directory="chroma.db", local_embed_model="sentence-transformers/paraphrase-MiniLM-L6-v2",
                                    openai_api_key=os.environ["OPENAI_API_KEY"])
 
     dspy.settings.configure(lm=turbo, rm=chroma_rm)

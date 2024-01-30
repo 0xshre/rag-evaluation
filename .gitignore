@@ -173,3 +173,8 @@ pyrightconfig.json
 # Custom
 
 *.json
+*.parquet
+*.pickle
+*.pkl
+*.csv
+*.binary

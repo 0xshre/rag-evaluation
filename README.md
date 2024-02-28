@@ -1,6 +1,8 @@
 QA RAG (Retrieval-Augmented Generation) System with Evaluation
 ===
 
+This repository contains the code for the QA RAG (Retrieval-Augmented Generation) System with Evaluation. The system is built using the DSPy package and the RAGAS metrics to evaluate the performance of the system.
+
 ## Setup
 
 1. Clone the repository

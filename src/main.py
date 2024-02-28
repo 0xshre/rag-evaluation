@@ -9,7 +9,7 @@ class GenerateAnswer(dspy.Signature):
 
     context = dspy.InputField(desc="may contain relevant facts")
     question = dspy.InputField()
-    answer = dspy.OutputField(desc="Answer the question")
+    answer = dspy.OutputField(desc="Answer the question in 1-5 words")
 
 class RAG(dspy.Module):
     def __init__(self, num_passages=5):
@@ -31,7 +31,7 @@ def setup():
     turbo = dspy.OpenAI(model='gpt-3.5-turbo')
 
     chroma_rm = ChromadbRM(collection_name="test", persist_directory="chroma.db", local_embed_model="sentence-transformers/paraphrase-MiniLM-L6-v2",
-                                   openai_api_key=os.environ["OPENAI_API_KEY"])
+                                   openai_api_key = os.environ["OPENAI_API_KEY"])
 
     dspy.settings.configure(lm=turbo, rm=chroma_rm)
     

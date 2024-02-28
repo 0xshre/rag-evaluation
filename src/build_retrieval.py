@@ -7,11 +7,11 @@ import chromadb
 
 PATH_FILE = 'data/raw/test.parquet'
 
-def generate_text_file(PATH_FILE):
+def generate_text_file(path_file):
     """ 
     Generate a text file from the parquet file
     """
-    df = pd.read_parquet(PATH_FILE)
+    df = pd.read_parquet(path_file)
     text = ''
     for line in df['text']:
         text += line
@@ -91,9 +91,6 @@ def main():
     init_retrieval_model(token_split_texts, embedding_function)
 
     print("Done!")
-
-
-
 
 
 if __name__ == "__main__":

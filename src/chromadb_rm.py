@@ -97,7 +97,7 @@ class ChromadbRM(dspy.Retrieve):
             self._local_tokenizer = AutoTokenizer.from_pretrained(local_embed_model)
             self.use_local_model = True
             self.device = torch.device(
-                'cuda:0' if torch.cuda.is_available() else
+                # 'cuda:0' if torch.cuda.is_available() else
                 'mps' if torch.backends.mps.is_available()
                 else 'cpu'
             )
